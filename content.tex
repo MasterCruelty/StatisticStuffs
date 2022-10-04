@@ -1,0 +1,71 @@
+\documentclass{article}
+
+%-----------------------
+% Document information
+%-----------------------
+
+
+\title{Statistic Stuffs}
+
+\author{Roberto \textsc{Antoniello}}
+
+\begin{document}
+\maketitle
+
+\begin{center} I will drop here some statistic concepts I liked during the course I had at University of Milan.\end{center}
+
+\section{Gini index}
+
+There are two types of Gini indexes. One has the purpose of telling how much a sample is heterogeneous. The other one is used for concentration. We will talk about the first one we have mentioned and is defined as follow:
+\begin{center}$$I = 1 - \sum_{j=1}^{k}f_j^2$$\end{center}
+
+This index is always less than 1 and always more than 0.
+
+\begin{center}$0 \leq I < 1$\end{center}
+
+So we are subtracting the squared relative frequencies from one. we know that: 
+\begin{center}$$\forall j f_j \ge 0 \longrightarrow \sum_{j=1}^k f_j = 1$$.\end{center}
+
+This implies that $\exists \acute{j} : \acute{f_j} > 0 \longrightarrow f_j^2 > 0$.
+
+So: \begin{center}$$\sum_{j=1}^k f_j^2 > 0 \longrightarrow I < 1$$ as said in before.\end{center}
+
+We can consider also that: $$\sum_{j=1}^kf_j^2 \le \sum_{j=1}^kf_j$$.
+
+This implies that i$$1 - \sum_{j=1}^kf_j^2 \ge 0$$.
+
+We have just demonstrated what we said a few moments ago. $0 \leq I < 1$.  
+
+\section{Probability calculus}
+
+Before we can talk about probability, we have to define a probability function. So we need to define as first $\Omega$ as the set of all possibles outcomes. Then we can say what is an event, which is just a subset of $\Omega$. Now let's define what is an Event algebra:
+$$\mathcal{A} = {E_i \subseteq \Omega}$$
+$E_i$ are all the subsets events in $\Omega$. This algebra has to respect three rules:
+
+1. $\Omega \in \mathcal{A}$
+
+2. $\forall E \subseteq \Omega \longrightarrow E \in \Omega \rightarrow \bar E \in \Omega$
+
+3. $\forall E,F \subseteq \Omega \longrightarrow E \in \mathcal{A}, F \in \mathcal{A} \rightarrow E \cup F \in \mathcal{A}$
+
+The third rule can be extended to this: $$\forall i=1,2,..,n E_i \subseteq \Omega, E_i \in \mathcal{A} \rightarrow \bigcup_{i=1}^nE_i \in \mathcal{A}$$
+
+Finally we can define the probability function.
+
+$P  :  \mathcal{A} \rightarrow \mathbb{R}$
+
+\subsection{Kolmogorov axioms}
+
+Kolmogorov axioms are the fundamental rules of the probability calculus.
+
+A1. $\forall E \in \mathcal{A} \ \ 0 \leq P(E) \leq 1$
+
+A2. $P(\Omega) = 1$
+
+A3. $\forall E_1...E_n \ \ \forall i \ E_i \in \mathcal{A}$ mutually exclusive $\rightarrow P(\bigcup_{i=1}^nE_i) = \sum_{i=1}^nP(E_i)$
+
+\subsection{Elemental theorems of Probability}
+
+work in progress
+
+\end{document}
