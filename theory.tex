@@ -211,7 +211,7 @@ Theorem:
 
 $$X \geq 0 \ \ \  \forall a > 0 \rightarrow P(X \geq a) \leq \frac{\mathcal E(X)}{a}$$
 \bigskip
-Demonstration:
+Demonstration(For continuous):
 
 $$\mathcal E(X) = \int_{0}^{+ \infty} x \cdot f_x(x)dx = \int_{0}^ax\cdot f_x(x)dx + \int_{a}^{+ \infty} x \cdot f_x(x)dx \geq \int_{a}^{+ \infty} x \cdot f_x(x)dx$$
 
@@ -219,7 +219,7 @@ $$\mathcal E(X) = \int_{0}^{+ \infty} x \cdot f_x(x)dx = \int_{0}^ax\cdot f_x(x)
 
 $$\geq \int_{a}^{+ \infty} a \cdot f_x(x)dx = a \cdot \int_{a}^{+ \infty} f_x(x)dx = a \cdot P(X \geq a) \longrightarrow \mathcal E(X) \geq a \cdot P(X \geq a)$$
 
-Now we divide both by a and it's demonstrated.
+Now we divide both by a and it's demonstrated. The demonstration for discreet variables is almost the same, we use summations instead of integrals.
 
 \subsection{Tchebyshev inequality}
 
@@ -313,9 +313,9 @@ $X \sim G(p) \ \ p \in (0,1]$
 $p_x(i) = P(X=i) (1-p)^i p \cdot I_{\mathbb{N} \cup {0}^(i)}$
 \bigskip
 
-$\mathcal E(X) = \frac{1-p}{p}$
+$$\mathcal E(X) = \frac{1-p}{p}$$
 
-$Var(X) = \frac{1-p}{p^2}$
+$$Var(X) = \frac{1-p}{p^2}$$
 \bigskip
 
 This model has the property of Memorylessness, which is defined as follow:
@@ -325,7 +325,85 @@ $P(X \geq i + j| X \geq i) = P(X \geq j)$
 The number of failures is saying nothing about the next experiment, the probability is the same.
 
 \subsection{Poisson model}
-work in progress
 
+Before talking about the possion model, let's write directly the Probability Mass Function.
+
+$X \sim P(\lambda) D_x = \mathbb{N} \cup \left\{0\right\}$
+\bigskip
+
+$$p_x(i) = P(X=i) = e^{- \lambda} \cdot \frac{\lambda^i}{i!} \cdot I_{\mathbb{N} \cup \left\{0\right\}}$$
+
+\bigskip
+
+$\mathcal E(X) = \lambda$
+
+$Var(X) = \lambda$
+\bigskip
+
+The really importance of the Poisson model is that we can approximate a Binomial variable with it during certain conditions.
+If we have a random variable X distributed as a Binomial with a "big" n and a "little" p (we can say a costant product np), then we can approximate well this variable as a Poisson of parameter $np = \lambda$.
+This is possible only when the big n is balanced from a decrease of p.
+
+\bigskip
+
+Demonstration:
+
+$X \sim B(n,p) \ \ \ n \ "big" \ \ \ p \ "little"$
+
+I set $np = \lambda$ with $\lambda > 0 \longrightarrow p = \frac{\lambda}{n}$
+
+$$P(X=i) = \left(\begin{array}{c} n \\ i \end{array} \right) \cdot p^i \cdot (1-p)^{n-i}$$
+
+$$= \left(\begin{array}{c} n \\ i \end{array} \right) \cdot (\frac{\lambda}{n})^i \cdot (1 - \frac{\lambda}{n})^{n-i}$$
+
+$$\frac{n(n-1)...(n-i+1)}{i!} \cdot (\frac{\lambda}{n})^i \cdot (1 - \frac{\lambda}{n})^{n-i}$$
+
+I switch the denominator $i!$ with $n$ and I do a limit for $n \rightarrow + \infty$ 
+
+$$\lim_{n \righarrow + \infty} \left(\frac{n}{n} \cdot \frac{n-1}{n} \cdot ... \cdot \frac{n - i + 1}{n} \cdot \frac{\lambda^i}{i!} \cdot \frac{(1 - \frac{\lambda}{n})^n}{(1 - \frac{\lambda}{n})^i}\right)$$
+
+the first part tends to 1, the fraction with $\lambda$ doesnt depend from n and we ignore it, we have to determine the last one:
+\bigskip
+
+we know that: $$\lim_{n \rightarrow + \infty} (1 + \frac{1}{n})^n \rightarrow e^1$$
+
+So the numerator tends to $e^{- \lambda}$ and the denominator tends to 1.
+
+The result of the limit is: $$\frac{\lambda^i}{i!} \cdot e^{- \lambda}$$
+
+This is literally the probablity mass function of a poisson random variable, so it's demonstrated.
+
+\subsection{Exponential model}
+
+This model is used for the time that pass between two events in the case the events exist based of some hypothesis.
+
+$X \sim E(\lambda) \lambda \in R^+$
+\bigskip
+
+$f_x(x) = \lambda \cdot e^{- \lambda x} \cdot I_\left\{R^+\right\}^(x)$
+\bigskip
+
+$\mathcal E(X) = \frac{1}{\lambda}$
+
+$Var(X) = \frac{1}{\lambda^2}$
+\bigskip
+
+
+The exponential model has something in common with the Geometric one, such as the Probability mass function graph of the geometric with the probability density function graph of the exponential. Both models has the Memorylessness property.
+\bigskip
+
+Demonstration:
+
+$$F_x(x) = 1 - e^{-\lambda x} \rightarrow P(X > x) = 1 - F_x(x) = e^{- \lambda x}$$
+
+$$P(X > s + t) = e^{- \lambda (s+t)} = e^{-\lambda s} \cdot e^{- \lambda t}$$
+
+$$P(X > s + t ) = P(X > s)P(X > t)$$
+
+$$P(X>s) = \frac{P(X > s +t )}{P(X > t)} \rightarrow Memorylessness \frac{P(X > s \cap X > t)}{p(X > t)}$$
+
+And so: $P(X > s + t | x > t) = P(X>s)$
+
+Demonstrated.
 
 \end{document}
