@@ -406,4 +406,120 @@ And so: $P(X > s + t | x > t) = P(X>s)$
 
 Demonstrated.
 
+\section{The Gaussian/Normal model}
+
+$X \sim G(\mu,\sigma) \ \ \mu \in R \ \ \ \sigma \in R^+$
+
+$$f_x(x) = \frac{1}{\sqrt{2\pi}\sigma}\cdot e^{\frac{- (x - \mu)^2}{2\sigma^2}}$$
+
+There's no need of a index set because $D_x$ is defined on all R.
+
+\bigskip
+
+$\mathcal E(X) = \mu$
+
+$Var(X) = \sigma^2$
+
+\bigskip
+
+If I calculate $aX +b:= Y$ 
+
+$X \sim G(\mu,\sigma) \rightarrow Y \sim G(aX +b,\sigma)$
+
+\bigskip
+
+If I consider two gaussian variables with independence:
+
+$X_1 \sim G(\mu_1,\sigma_1)$ and $X_2 \sim G(\mu_2,\sigma_2)$
+
+$X_1 + X_2 \sim G(\mu_1+\mu_2,\sqrt{\sigma_1^2 + \sigma_2^2})$
+
+\subsection{Standardization}
+
+The standardization is defined as follow:
+
+$$Y = \frac{X - \mu}{\sigma}$$
+
+The result is again a Gaussian variable with $\mathcal E(X) = 0$ and $Var(X) = 1$.
+
+This type of gaussian has a particolar name: standard normal.
+
+$X \sim N(0,1)$
+
+\bigskip
+
+summarizing the Standard Normal:
+
+$$Z:= \frac{X -\mu}{\sigma} \sim N(0,1)$$
+
+$$P(Z > x) = 1 - P(Z \leq x) = 1 - \Phi(x)$$
+
+\subsection{Reproduction}
+
+If we have $X_1,...,X_n$ gaussian variables with independence $$X_i \sim G(\mu_i,\sigma_i)$$
+
+we define $$Y = \sum_{i=1}^n X_i \longrightarrow \mathcal E(Y) = \sum_{i=1}^n\mu_i \ \ \ Var(Y) = \sum_{i=1}^n \sigma_i^2$$
+
+$$Y \sim G\left(\sum_{i=1}^n \mu_i, \sqrt{\sum_{i=1}^n \sigma_i^2}\right)$$
+
+This behavior is similar to what we have seen with the binomial variable.
+
+The Poisson model has this exact property too.
+
+\section{Central Limit Theorem}
+
+Hypothesis:
+
+$X_1,...,X_n$ random variables with independence and with same distribution
+
+$\forall i \ \ \ \mathcal E(X_i) = \mu \ \ \ Var(X_i) = \sigma^2$
+
+\bigskip
+
+If I sum all of these variables:
+
+$$\sum_{i=1}^n X_i \dot \sim N(n\mu,\sqrt{n}\sigma)$$
+
+\bigskip
+
+\bigskip
+
+If I do the standardization:
+
+$$\frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n}\sigma} \dot \sim N(0,1)$$
+
+This approximation is better when the number of random variables is high.
+
+Now, if we want to be more formal:
+
+$$\lim_{n \rightarrow +\infty} P\left(\frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n} \sigma} \leq x\right) = \Phi(x)$$
+
+Where $\Phi(x)$ is the cumulative ditribution function of the Standard Normal.
+
+\section{Law of larger number}
+
+This law has two forms: strong and weak.
+
+\bigskip
+
+The strong one:
+
+$$P\left(\lim_{n \rightarrow + \infty} \bar X_n =\mu\right) = 1$$
+
+More the number of elements in the sample we have, less the $\bar X$ is a random quantity, it becomes a constant which is exactly what I want to esteem.
+
+
+\bigskip
+
+The weak one:
+
+$$\lim_{n \rightarrow + \infty} P\left(|\bar X_n - \mu| > \epsilon\right) = 0$$
+
+I pin an epsilon that tell me when the error is too much. This is the probability that the error in the esteem is too much and with n that tends to infinity this probability tends to zero $\forall \epsilon > 0$.
+
+\section{Conclusion}
+
+Other concepts will be inside the jupyter notebook I put in this repository.
+I ignored many details such as the demonstration of how some $\mathcal E(X)$ and $Var(X)$ have those values and why.
+
 \end{document}
