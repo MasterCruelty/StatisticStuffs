@@ -148,6 +148,48 @@ $$P(At \ \ least \ \ a \ \ j \ \ card | I \ \ have \ \ a \ \ i \ \ card)$$
 
 $$P(A_j | A_i ) = \frac{P(A_i \cap A_j)}{P(A_i)} = \frac{1 - (1 - P_i)^k - (1 - P_j)^k + (1 - P_i - P_j)^k}{1 - (1 - P_i)^k}$$
 
-Demonstration: To do
+Demonstration: 
+
+\bigskip
+
+First we determine $P(A_i)$
+
+$$P(A_i) = 1 - P(\bar A_i) = 1 - P(I \ \ never \ \ get \ \ the \ \ i-card \ \ on \ \ k \ \ purchases)$$
+
+$$= 1 - P(\bigcap_{i=1}^k \ \ I \ \ don't \ \ get \ \ the \ \ i-card \ \ on \ \ the \ \ k \ \ purchase)$$
+
+$$= 1 - \prod_{i=1}^k P(I \ \ don't \ \ get \ \ the \ \ i-card \ \ on \ \ the \ \ k \ \ purchase)$$
+
+$$= 1 - \prod_{i=1}^k (1 - P_i) = 1 - (1 - P_i)^k$$
+
+\bigskip
+
+Second we determine $P(A_i \cap A_j)$
+
+$$P(A_i \cap A_j) = 1 - P(\overline{A_i \cap A_j}) = 1 - P(\bar A_i \cup \bar A_j)$$
+
+$$= 1 - (P(\bar A_i) + P(\bar A_j) - P(\bar A_i \cap \bar A_j))$$
+
+$$= 1 - ((1 - P_i)^k + (1 - P_j)^k - P(\bar A_i \cap \bar A_j))$$
+
+\bigskip
+
+To finish we have to determine $P(\bar A_i \cap \bar A_j)$
+
+$$P(\bar A_i \cap \bar A_j) = P(I \ \ never \ \ get \ \ the \ \ i-card \ \ and \ \ j-card \ \ on \ \ k \ \ purchases)$$
+
+$$= P(\bigcap_{i=1}^k \ \ I \ \ don't \ \ get \ \ the \ \ i-card \ \ and \ \ j-card \ \ on \ \ the \ \ k \ \ purchase)$$
+
+$$= \prod_{i=1}^k (1- P_i - P_j) = (1 - P_i - P_j)^k$$
+
+\bigskip
+
+So we have determinated that:
+
+$$P(A_i \cap A_j) = 1 - (1 - P_i)^k + (1 - P_j)^k - (1 - P_i - P_j)^k$$
+
+\bigskip
+
+Demonstrated.
 
 \end{document}
