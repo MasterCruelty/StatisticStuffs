@@ -635,6 +635,82 @@ $$\lim_{n \rightarrow + \infty} P\left(|\bar X_n - \mu| > \epsilon\right) = 0$$
 
 I pin an epsilon that tell me when the error is too much. This is the probability that the error in the esteem is too much and with n that tends to infinity this probability tends to zero $\forall \epsilon > 0$.
 
+\section{Poisson Process}
+
+Poisson process is a stochastic process that can be used to gain interesting results. For example if we have data of many events where the event is: "They called me for advertising", it's possible to predict the exact time of the next phone call with this tool.
+
+\bigskip
+
+Let's define a few actors: 
+
+$t = 0$ instants of time.
+
+$N(t): \ \ random \ \ variable \rightarrow N(t)$ are the events that happen in $[0,t]$
+
+\bigskip
+
+N that varies of "t" is a stochastic process. A stochastic process is a process characterized from events that have a probability which have sense only for small intervals.
+
+As t varies, I have a family of random variables.
+
+\bigskip
+
+There are 4 hypothesis to use the Poisson Process:
+
+1. $N(0) = 0$ which meeans the time 0, before that it happens nothing.
+
+2. Independence of disjoint intervals. 
+
+3. $$\lim_{h \rightarrow 0} \frac{P(N(\lambda) = 1)}{h} = \lambda$$
+
+\bigskip
+
+This third hypothesis is saying that more "h" is near to 0, more the fraction can be well approximed by $\lambda$.
+
+\bigskip
+
+More formal: $\exists \lambda : \lim_{h \rightarrow 0} = \lambda$
+
+If I consider small intervals starting from zero, the probability that there's an exact event that happen in this interval depends from the length of the interval.
+
+\bigskip
+
+more formal: $h \ \ is \ \ small \longrightarrow P(N(\lambda) = 1) \approx \lambda \cdot h$
+
+4. $$\lim_{h \rightarrow 0} \frac{P(N(\lambda) \geq 2}{h} = 0$$
+
+The fourth hypothesis says that if I have a small "h", the probability of getting 2 or more events is approximed to zero.
+
+\bigskip
+
+\bigskip
+
+If these 4 hypothesis exists then:
+
+$$N(t) \sim P(\lambda \cdot t)$$
+
+So: $$P(N(t) = k) = e^{- \lambda t} \cdot \frac{(\lambda t)}{k!} \cdot I_{N \cup \left\{0\right\}^{(k)}$$
+
+That probability explained: I have exactly k events happened on a interval between 0 and t. It doesn't matter if I start from zero, it works even if I start from a "s" value.
+
+$$P(X_1 > t) = P(N(t) = 0) = e^{\lambda t} \cdot \frac{(\lambda t)^0}{0!} = e^{- \lambda t}$$
+
+$$F_{x_1}(t) = P(X_1 \leq t) = 1 - P(X_1 > t) = 1 - e^{- \lambda t} \longrightarrow X_1 \sim E(\lambda)$$
+
+Using the memorylessness property of the exponential model, you can demonstrate that: $$\forall i \ X_i \sim E(\lambda) i.i.d.$$
+
+\bigskip
+
+\bigskip
+
+Conclusions: If exists the hypothesis of Poisson Process...
+
+\bigskip
+
+1. The number of occurences of events in a interval of lenght "t" is well described by a Poisson model of parameter $\lambda t$.
+
+2. The time that passes between two events is distributed as an exponential of parameter $\lambda$.
+
 \section{Conclusion}
 
 Other concepts will be inside the jupyter notebook I put in this repository.
