@@ -1,0 +1,153 @@
+\documentclass{article}
+%-----------------------
+% Document information
+%-----------------------
+
+
+\title{A few exercises}
+
+\author{Roberto \textsc{Antoniello}}
+
+\begin{document}
+
+\maketitle
+
+\begin{center} In this file I put a couple of exercises around the Probability calculus.\end{center}
+
+\section{Delicate question}
+
+There are 100 students and 100 sphere with a number. Every student draws a sphere and must answer with yes or no.
+
+\bigskip
+
+Sphere with number $\leq 70 \rightarrow$ delicate question.
+
+Sphere with number $> 70 \rightarrow$ check question.
+
+\bigskip
+
+We would like to know the probability that an answer is "yes" considering that it's a delicate question. Let's assume we have 25 yes.
+
+$$P(yes) = P(yes|delicate)\cdot P(delicate) + P(yes| check) \cdot P(check)$$
+
+$$P(yes) \approx 0.25 \ \ \ P(yes|check)  = 0.5 \ \ \ P(check) = 0.3 \ \ \ P(delicate) = 0.7$$
+
+$$P(yes|delicate) = \frac{0.25 - (0.5\cdot 0.3)}{0.7} \approx 0.14$$
+
+\section{Books on a rack}
+
+We have 10 books and we would like to know every possible ways to put them on a rack in order by subject.
+The books are: $4M + 3C + 2S + 1L$
+
+\bigskip
+
+So we are trying to do permutation over these books and then here the answer:
+
+$$(4!\cdot3!\cdot2!\cdot1!)\cdot 4!$$
+
+I supposed the subject order and I multiplied for the number of possible orders(First M, First C, etc.etc.).
+
+\section{Extraction of balls}
+
+We have 11 balls, 5 of them are white and 6 of them are black. We would like to know the probability of extracting two balls with different colour eachother with two consecutive extractions.
+
+\bigskip
+
+Possible cases $\rightarrow d_{11,2} = 11 \cdot 10 = 110$
+
+Favourable cases $\rightarrow 6 \ \ white \cdot 5 \ \ black = 30$ and it's the same if I extract black before the white.
+
+\bigskip
+
+$$P(two \ \ \ different \ \ \ colours) = \frac{60}{110} = \frac{6}{11}$$
+
+\section{Disease test}
+
+We have a test that tells us if a person has a particolar disease or not. This test get the right answer in 99\% of the cases, it gives a fake positive in 1\% of the cases.
+
+We would like to know the probability of being sick considering I had a positive response of the test.
+
+\bigskip
+
+Let's define two events: 
+
+E = positive
+
+S = sick
+
+\bigskip
+
+99\% is ok
+
+1\% is fake positive
+
+\bigskip
+
+$P(E|M) = 0.99$
+
+$P(E|\bar M) = 0.01$
+
+$P(\bar E| \bar M) = 1 - P(E | \bar M) = 0.99$
+
+$P(M) = 0.005$ (We suppose this as sickness rate)
+
+
+$$P(M|E) = \frac{P(M \cap E)}{P(E)} = \frac{P(E\cap M)}{P(E)} = \frac{P(E|M)\cdot P(M)}{P(E)} = $$
+
+$$\frac{P(E|M)\cdot P(M)}{P(E|M) \cdot P(M) + P(E|\bar M) \cdot P(\bar M)} = \frac{0.99 \cdot 0.005}{0.99 \cdot 0.005 + 0.01 \cdot 0.995} \approx 0.3322$$
+
+\section{Lost plane}
+
+There's a lost plane and we have 3 zones to search.
+We would like to know the probability that the plane has fallen in each zones considering that a research in zone 1 had a negative outcome.
+
+\bigskip
+
+So: $$P(Z_1) = \frac{1}{3} \ \ P(Z_2) = \frac{1}{3} \ \ P(Z_3) = \frac{1}{3}$$
+
+\bigskip
+
+I define $\alpha_i = P(Not \ \ found| I \ \ search \ \ in \ \ Z_i)$
+
+\bigskip
+
+Let's consider the E event that happens when the plane is not found in $Z_1$.
+
+\bigskip
+
+So: $$ P(E|Z_1) = \alpha_1 \ \ P(E|Z_2) = 1 \ \ P(E|Z_3) = 1$$ 
+
+
+$$P(E) = \sum_{i=1}^3 P(E|R_i)P(R_i) = \frac{\alpha_i}{3} + \frac{2}{3} \ \ Total \ \ probability \ \ theorem$$
+
+$$P(R_1|E) = \frac{P(E| R_1) \cdot P(R_1)}{P(E)} =  \frac{\frac{\alpha_i}{3}}{\frac{(\alpha_1 + 2)}{3}} = \frac{\alpha_1}{\alpha_1 + 2} \ \ Bayes \ \ Theorem$$
+
+For i = 2,3 we obtain: $$\frac{1}{\alpha + 2}$$ 
+
+\section{Collection cards}
+
+There are n collection cards. 
+
+$P_i = P(I \ \ buy \ \ the \ \ i-card)$
+
+\bigskip
+
+$0 \leq P_i \leq 1$
+
+\bigskip
+
+$\sum_{i=1}^k P_i = 1$
+
+\bigskip
+
+I have k cards.
+
+We would like to calculate this probability:
+
+$$P(At \ \ least \ \ a \ \ j \ \ card | I \ \ have \ \ a \ \ i \ \ card)$$
+
+$$P(A_j | A_i ) = \frac{P(A_i \ cap A_j)}{P(A_i)} = \frac{1 - (1 - P_i)^k - (1 - P_j)^k + (1 - P_i - P_j)^k}{1 - (1 - P_i)^k}$$
+
+Demonstration: To do
+
+\end{document}
