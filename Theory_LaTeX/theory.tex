@@ -197,7 +197,68 @@ Basically it's a function that associates a number to each outcome of a random e
 In this document we will see discreet and continuous random variables.
 \bigskip
 
-The tools and graphics to work with random variables will be defined in a Jupyter notebook inside this repo.
+\subsection{Cumulative Distribution Function}
+
+This function can be defined as the DNA of a random variable, the ID card we can say. It tells us how the variable is distributed.
+
+\bigskip
+
+Definition: $F_x(x) = P(X \leq x)$
+
+Soon we will understand what it means when a random variable is distributed like a certain $F_x$ and we will write $X \sim F_x$. 
+\bigskip
+
+Properties of $F_x$:
+
+$F_x : R \rightarrow [0,1]$
+
+$F_x > 0$
+
+$\lim_{x \rightarrow + \infty}F_x(x) = 1$
+
+\subsection{Probability Mass Function}
+
+Only a disreet random variable has this type of function. Discreets random variables assume an enumerable set of specifications. This function is always greater than zero. It's defined as follows:
+
+\bigskip
+
+$p_x : R \rightarrow [0,1]$
+
+$p_x(i) = P(X = i)$
+
+\bigskip
+
+if we do $\sum_{i} p_x(i)$ we obtain 1. Basically we are doing the sum of all specifications that a random variables X can assume, so we are obtaining $\Omega$ and then we are obtaining 1.
+
+\subsection{Probability Density Function}
+
+Only a continous random variable has this type of function. It's defined as follows:
+
+$f_x : R \rightarrow R^+$
+
+\bigskip
+
+$$\forall B \subseteq R, \ P(X \in B) = \int f_x(x)dx$$
+
+$$P(a \leq X \leq b) \int_{a}^{b} f_x(x)dx$$
+
+Now we'll explaining why this can't work using the Probability Mass Function. Basically it would be like calculating: $$P(X = a) = P(a \leq X \leq a) = \int_{a}^{a} f_x(x)dx = 0$$
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+Properties of a Probability Density Function:
+
+$$First: \ \ \int_{- \infty}^{+ \infty} f_x(x)dx = \int_{R} f_x(x)dx = P(X \in R) = 1$$
+
+$$Second: \ \ \int_{- \infty}^{a} f_x(x)dx = P(X \leq a) = F_x(a) \longrightarrow \frac{d}{dx} F_x(x) = f_x(x)$$
 
 \section{Markov and Tchebyshev inequalities}
 
