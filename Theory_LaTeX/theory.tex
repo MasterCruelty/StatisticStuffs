@@ -147,6 +147,61 @@ $P(\emptyset) = P(\bar \Omega) = 1 - P(\Omega) = 0$
 
 Demonstrated.
 
+\section{Combination calculus}
+
+Definition: I have a finite set of objects and some ways that allow me to regroup them. I want to count the number of different possible regroups.
+
+\subsection{Principle of enumeration}
+
+I have two experiments. The first with "n" outcomes and the second with "m" outcomes. The sorted couples of possibles outcomes are $n \cdot m$
+
+If I have "n" experiments:
+
+$$m_i = number  \ outcomes \ \ of \ \ i-experiment \longrightarrow m_1 \cdot m_2 \cdot ... \cdot m_n = \prod_{i=1}^n m_i$$
+
+\subsection{Sequencies with repetitions and without repetitions}
+
+I have pinned a certain number of places and I put my objects in queue in these places. The order of the objects does matter.
+
+1. Sequencies with repetitions: let's imagine a rack where we are going to put the objects, we would obtain this kind of situation.
+
+$[n;n;n;n;...;n \ \ \ \ \ ;n \ \ \ \ \ ;]$
+ 
+$\ 1 \ \  2  \ \  3 \ 4 \ \ \ \ \ \ k-1 \  k_{place} $
+
+\bigskip
+
+So:
+
+$$D_{n,k} = n^k$$
+
+2. Sequencies without repetitions: let's imagine the same rack but we can't repeat in this case.
+
+[n;n-1;n-2;...;n-k;n-k+1;]
+
+\bigskip
+
+So:
+
+$$d_{n,k} = \frac{n!}{(n-k)!}$$
+
+
+\subsection{Permutations}
+
+A unique index. Premutations of "n" objects.
+
+$$P_n = d_{n,n} = n!$$
+
+\subsection{Combinations of n objects on k places}
+
+Same definition of sequencies but the order of objects doesn't matter.
+
+$$C_{n,k} = \frac{d_{n,k}}{k!} = \frac{n!}{k! \cdot (n-k)!} = \left(\begin{array}{c} n \\ k \end{array}\right)$$
+
+\bigskip
+
+The result of the binomial coefficient is the number of possible ways to extract subsets of k elements from a set that contains n elements.
+
 \section{Total probability theorem and Bayes Theorem}
 
 these two theorems can be useful to calculate complex probability by calculating more probabilities that are more simple.
